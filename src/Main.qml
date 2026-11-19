@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
-import Qt.labs.qmlmodels
+import QtQml
 
 ApplicationWindow {
     id: win
