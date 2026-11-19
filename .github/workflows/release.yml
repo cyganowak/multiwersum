@@ -31,6 +31,10 @@ jobs:
           exe=$(find . -name multiwersum.exe | head -1)
           d=$(dirname "$exe")
           windeployqt "$exe"
+          # MinGW runtime DLLs: windeployqt skips toolchain libs — copy explicitly
+          for r in libgcc_s_seh-1.dll libstdc++-6.dll libwinpthread-1.dll; do
+            cp "/ucrt64/bin/$r" "$d/"
+          done
           # MSYS2 windeployqt lacks QML deployment — copy the QML modules manually
           mkdir -p "$d/qml"
           for m in QtCore QtQml QtQuick QtNetwork; do
