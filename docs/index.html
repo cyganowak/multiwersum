@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiwersum — track the Marvel multiverse with your people</title>
+<meta name="description" content="Free, offline desktop app to tick off Marvel films and series, compare with friends, and keep a shared watch queue. Qt + Hyprland native, Arch package, Polish and English.">
+<style>
+:root{--bg:#121212;--panel:#1c1c1e;--panel2:#232326;--text:#e8e6e3;--dim:#9a978f;--accent:#ffd60a;
+--red:#ff453a;--blue:#0a84ff;--green:#30d158;--pink:#ff375f;--radius:8px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:800;font-size:22px;letter-spacing:.02em;color:var(--text)}
+.logo b{color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:#111;font-weight:700;border-radius:var(--radius);padding:10px 20px}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.hero{padding:56px 0 32px;text-align:center}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.15;font-weight:800}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{color:var(--dim);max-width:640px;margin:16px auto 28px;font-size:18px}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.shot{display:block;width:100%;max-width:920px;margin:40px auto 0;border:1px solid #2c2c2e;border-radius:var(--radius);box-shadow:0 24px 80px rgba(0,0,0,.55)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:56px 0 8px}
+.card{background:var(--panel);border:1px solid #2a2a2c;border-radius:var(--radius);padding:22px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{color:var(--dim);font-size:14.5px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+h2{font-size:26px;margin:64px 0 20px;font-weight:800}
+.kbd{display:inline-block;background:var(--panel2);border:1px solid #38383c;border-bottom-width:3px;border-radius:6px;padding:1px 9px;font:13px/1.9 ui-monospace,monospace;min-width:34px;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+td{padding:9px 12px;border-bottom:1px solid #242426;color:var(--dim)}
+td:first-child{white-space:nowrap}
+tr td:last-child{text-align:left;color:var(--text)}
+pre{background:var(--panel);border:1px solid #2a2a2c;border-radius:var(--radius);padding:18px;overflow:auto;font-size:14px;line-height:1.7}
+footer{margin:72px 0 40px;color:var(--dim);font-size:14px;text-align:center}
+.langs{margin-top:10px;font-size:13.5px;color:#6f6d68}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="logo">MULTI<b>WERSUM</b></div>
+  <nav><a class="btn ghost" href="https://github.com/cyganowak/multiwersum">GitHub</a></nav>
+</header>
+
+<section class="hero">
+  <h1>Tick off the Marvel multiverse.<br>Compare with <em>your people</em>.</h1>
+  <p>A small offline desktop app: one shared checklist of every Marvel film and series,
+  tick marks per person, a side-by-side comparison, and a queue of what to watch next.</p>
+  <div class="cta">
+    <a class="btn" href="https://github.com/cyganowak/multiwersum#install">Install on Arch</a>
+    <a class="btn ghost" href="https://github.com/cyganowak/multiwersum">Source on GitHub</a>
+  </div>
+  <img class="shot" src="screenshot.png" alt="Multiwersum compare view showing two profiles side by side">
+</section>
+
+<section class="grid">
+  <div class="card"><h3><span class="dot" style="background:var(--red)"></span>List</h3>
+    <p>One person's ticks across the whole catalog — phases 1–6, Netflix &amp; ABC shows,
+    even Sony/Fox Marvel. Progress bars, search, filters.</p></div>
+  <div class="card"><h3><span class="dot" style="background:var(--blue)"></span>Compare</h3>
+    <p>Two people side by side: only A has seen it, only B, both, or neither.
+    Perfect for settling “what do we watch tonight”.</p></div>
+  <div class="card"><h3><span class="dot" style="background:var(--green)"></span>Queue</h3>
+    <p>One shared, ordered “next up” list with a tick per person.
+    One button adds the next MCU title nobody has seen yet.</p></div>
+  <div class="card"><h3><span class="dot" style="background:var(--accent)"></span>Native</h3>
+    <p>C++/Qt Quick built the Omarchy way: follows your desktop accent and window
+    rounding live, speaks your language (English &amp; Polish included), fully keyboard-driven.
+    No account, no cloud — one JSON file in your home dir.</p></div>
+</section>
+
+<h2>Keyboard-first</h2>
+<table>
+  <tr><td><span class="kbd">↑ ↓</span></td><td>navigate rows</td></tr>
+  <tr><td><span class="kbd">Space</span></td><td>toggle a tick for the active person</td></tr>
+  <tr><td><span class="kbd">1</span>–<span class="kbd">4</span></td><td>switch active person (up to four)</td></tr>
+  <tr><td><span class="kbd">/</span></td><td>search titles</td></tr>
+  <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Z</span></td><td>undo (redo with <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">Z</span>)</td></tr>
+  <tr><td><span class="kbd">?</span></td><td>show all shortcuts · <span class="kbd">Esc</span> closes</td></tr>
+</table>
+
+<h2>Install (Arch / Omarchy)</h2>
+<pre>git clone https://github.com/cyganowak/multiwersum
+cd multiwersum/pkgbuild
+makepkg -si
+# then: Super+Space → Multiwersum</pre>
+<p style="color:var(--dim);margin-top:12px;font-size:14.5px">Requires Qt 6 (base, declarative, wayland).
+Built and tested on Arch; should build anywhere with Qt&nbsp;6 and qmake6.</p>
+
+<footer>
+  <p>Multiwersum — MIT licensed, no telemetry, no network. Made for the sofa.</p>
+  <p class="langs">Catalog state: mid-2026 · includes unreleased titles marked as upcoming</p>
+</footer>
+
+</div>
+</body>
+</html>
