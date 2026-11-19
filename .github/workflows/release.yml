@@ -41,6 +41,27 @@ jobs:
             cp -r "$(qmake6 -query QT_INSTALL_QML)/$m" "$d/qml/"
           done
           printf '[Paths]\nQml2Imports = qml\n' > "$d/qt.conf"
+          # windeployqt also misses the dependency closure (pcre2/icu/freetype/...).
+          # Resolve it transitively with objdump and copy from /ucrt64/bin.
+          SYS='^(KERNEL32|USER32|GDI32|GDI32|SHELL32|OLE32|OLEAUT32|ADVAPI32|WS2_32|IMM32|MPR|VERSION|WINMM|CRYPT32|SECUR32|NTDLL|DWRITE|DWMAPI|SHCORE|UXTHEME|SETUPAPI|USERENV|DBGHELP|IPHLPAPI|WINTRUST|BCRYPT|POWRPROF|PDH|WTSAPI32|NETAPI32|NORMALIZ|CFGMGR32|MSVCRT|AUTHZ|DNSAPI|WINHTTP|D3D9|D3D11|D3D12|DXGI|OPENGL32|GLU32|COMDLG32|WINSPOOL|RPCRT4|WINSCARD|SENSAPI|MMDEVICE|PROPSYS|SXS|CSUSER32|ONESTCORE|BCPM4|SORTOS|USP10|MSIMG32|OLEACC|UIAUTOMATIONCORE|FWPUCLNT|IPHLPAPI|NSI|WPR|XINPUT|HID)[.]dll$'
+          done=""; stack=$(ls "$d"/Qt6*.dll "$exe")
+          while [ -n "$stack" ]; do
+            cur=$stack; stack=""
+            for f in $cur; do
+              case " $done " in *" $f "*) continue;; esac
+              done="$done $f"
+              for imp in $(objdump -p "$f" 2>/dev/null | awk '/DLL Name/{print $3}'); do
+                echo "$imp" | grep -qiE "$SYS" && continue
+                t=$(find /ucrt64/bin -maxdepth 1 -iname "$imp" | head -1)
+                if [ -n "$t" ]; then
+                  if ! [ -f "$d/$imp" ]; then cp "$t" "$d/"; fi
+                  stack="$stack $t"
+                else
+                  echo "UNRESOLVED: $f -> $imp" >&2; exit 1
+                fi
+              done
+            done
+          done
       - name: Package
         shell: pwsh
         run: |
