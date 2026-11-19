@@ -14,11 +14,16 @@ jobs:
         shell: pwsh
         run: |
           pip install aqtinstall
-          $vers = (aqt list-qt windows desktop) -split '\s+' | Where-Object { $_ -match '^\d+\.\d+' }
-          $ver = $vers[-1]
-          Write-Host "Using Qt $ver"
-          aqt install-qt windows desktop $ver win64_msvc2022_64 -O C:\Qt
-          "QTDIR=C:\Qt\$ver\win64_msvc2022_64" | Out-File -FilePath $env:GITHUB_ENV -Append
+          $vers = (aqt list-qt windows desktop) -split '\s+' | Where-Object { $_ -match '^\d+\.\d+\.\d+$' }
+          [array]::Reverse($vers)
+          foreach ($v in $vers) {
+            Write-Host "Trying Qt $v"
+            if (aqt install-qt windows desktop $v win64_msvc2022_64 -O C:\Qt) {
+              "QTDIR=C:\Qt\$v\win64_msvc2022_64" | Out-File -FilePath $env:GITHUB_ENV -Append
+              exit 0
+            }
+          }
+          exit 1
       - name: Build
         shell: pwsh
         run: |
