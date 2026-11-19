@@ -9,31 +9,23 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@v1
-      - name: Install Qt
-        shell: pwsh
-        run: |
-          pip install aqtinstall
-          $vers = (aqt list-qt windows desktop) -split '\s+' | Where-Object { $_ -match '^\d+\.\d+\.\d+$' }
-          [array]::Reverse($vers)
-          foreach ($v in $vers) {
-            Write-Host "Trying Qt $v"
-            if (aqt install-qt windows desktop $v win64_msvc2022_64 -O C:\Qt) {
-              "QTDIR=C:\Qt\$v\win64_msvc2022_64" | Out-File -FilePath $env:GITHUB_ENV -Append
-              exit 0
-            }
-          }
-          exit 1
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-qt6-base
+            mingw-w64-ucrt-x86_64-qt6-declarative
+            make
       - name: Build
-        shell: pwsh
+        shell: msys2 {0}
         run: |
-          mkdir build
-          cd build
-          & "$env:QTDIR\bin\qmake6.exe" "CONFIG+=release" "CONFIG-=debug_and_release" ..\multiwersum.pro
-          nmake
-          $exe = Get-ChildItem -Recurse -Filter multiwersum.exe | Select-Object -First 1
-          & "$env:QTDIR\bin\windeployqt.exe" $exe.FullName --qmldirs ..\src
-          if ($LASTEXITCODE -ne 0) { exit 1 }
+          mkdir -p build && cd build
+          qmake6 "CONFIG+=release" "CONFIG-=debug_and_release" ../multiwersum.pro
+          mingw32-make -j2
+          exe=$(find . -name multiwersum.exe | head -1)
+          windeployqt "$exe" --qmldirs ../src
       - name: Package
         shell: pwsh
         run: |

@@ -17,9 +17,9 @@
             "name": "multiwersum",
             "buildsystem": "simple",
             "build-commands": [
-                "qmake6 PREFIX=/app",
+                "qmake6 CONFIG+=release",
                 "make",
-                "make install"
+                "install -Dm755 $(find . -name multiwersum -type f -perm -u+x -not -path './build/*' | head -1) %{FLATPAK_DEST}/bin/multiwersum"
             ],
             "sources": [
                 { "type": "dir", "path": ".." }
