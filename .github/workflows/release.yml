@@ -17,13 +17,14 @@ jobs:
             mingw-w64-ucrt-x86_64-gcc
             mingw-w64-ucrt-x86_64-qt6-base
             mingw-w64-ucrt-x86_64-qt6-declarative
+            mingw-w64-ucrt-x86_64-qt6-tools
             make
       - name: Build
         shell: msys2 {0}
         run: |
           mkdir -p build && cd build
           qmake6 "CONFIG+=release" "CONFIG-=debug_and_release" ../multiwersum.pro
-          mingw32-make -j2
+          make -j2
           exe=$(find . -name multiwersum.exe | head -1)
           windeployqt "$exe" --qmldirs ../src
       - name: Package
