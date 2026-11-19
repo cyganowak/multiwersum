@@ -2,7 +2,6 @@
 Title=Multiwersum
 Name=com.github.cyganowak.multiwersum
 Branch=stable
-Url=https://github.com/cyganowak/multiwersum/releases/download/v0.1.0/multiwersum.flatpak
+Url=https://github.com/cyganowak/multiwersum/releases/latest/download/multiwersum.flatpak
 IsRuntime=false
-GPGVerify=false
 Summary=Tick off Marvel films and series, compare who has seen what, and queue what to watch next

@@ -26,7 +26,14 @@ jobs:
           qmake6 "CONFIG+=release" "CONFIG-=debug_and_release" ../multiwersum.pro
           make -j2
           exe=$(find . -name multiwersum.exe | head -1)
-          windeployqt --qmldirs ../src "$exe"
+          d=$(dirname "$exe")
+          windeployqt "$exe"
+          # MSYS2 windeployqt lacks QML deployment — copy the QML modules manually
+          mkdir -p "$d/qml"
+          for m in QtCore QtQml QtQuick QtNetwork; do
+            cp -r "$(qmake6 -query QT_INSTALL_QML)/$m" "$d/qml/"
+          done
+          printf '[Paths]\nQml2Imports = qml\n' > "$d/qt.conf"
       - name: Package
         shell: pwsh
         run: |
