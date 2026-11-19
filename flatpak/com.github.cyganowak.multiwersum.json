@@ -34,8 +34,8 @@
                 "install -Dm644 com.github.cyganowak.multiwersum.svg %{FLATPAK_DEST}/share/icons/hicolor/scalable/apps/com.github.cyganowak.multiwersum.svg"
             ],
             "sources": [
-                { "type": "file", "path": "com.github.cyganowak.multiwersum.desktop" },
-                { "type": "file", "path": "com.github.cyganowak.multiwersum.svg" }
+                { "type": "file", "path": "com.github.cyganowak.multiwersum.desktop", "dest-filename": "multiwersum.desktop" },
+                { "type": "file", "path": "com.github.cyganowak.multiwersum.svg", "dest-filename": "com.github.cyganowak.multiwersum.svg" }
             ]
         }
     ]

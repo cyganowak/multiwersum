@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: nimaa32/msvc-dev-cmd@v1
+      - uses: xtpb/msvc-dev-cmd@v1
       - name: Install Qt
         shell: pwsh
         run: |
