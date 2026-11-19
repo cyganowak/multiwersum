@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="Main.qml">Main.qml</file>
+        <file alias="Ui.qml">Ui.qml</file>
+        <file alias="qmldir">qmldir</file>
+        <file alias="Chip.qml">Chip.qml</file>
+        <file alias="PersonChip.qml">PersonChip.qml</file>
+        <file alias="Tag.qml">Tag.qml</file>
+        <file alias="MarkBox.qml">MarkBox.qml</file>
+        <file alias="IconButton.qml">IconButton.qml</file>
+        <file alias="SagaRow.qml">SagaRow.qml</file>
+        <file alias="SectionRow.qml">SectionRow.qml</file>
+        <file alias="TitleRow.qml">TitleRow.qml</file>
+        <file alias="QueuedRow.qml">QueuedRow.qml</file>
+        <file alias="HelpOverlay.qml">HelpOverlay.qml</file>
+        <file alias="catalog.json">catalog.json</file>
+        <file alias="i18n/en.json">i18n/en.json</file>
+        <file alias="i18n/pl.json">i18n/pl.json</file>
+    </qresource>
+</RCC>

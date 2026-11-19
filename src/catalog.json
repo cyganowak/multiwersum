@@ -1,0 +1,1010 @@
+{
+ "sections": [
+  {
+   "id": "f1",
+   "saga": "The Infinity Saga",
+   "badge": "1",
+   "name": "Phase One",
+   "subtitle": "2008–2012 · Avengers assemble",
+   "items": [
+    {
+     "id": "iron-man",
+     "title": "Iron Man",
+     "year": 2008,
+     "type": "film"
+    },
+    {
+     "id": "incredible-hulk",
+     "title": "The Incredible Hulk",
+     "year": 2008,
+     "type": "film"
+    },
+    {
+     "id": "iron-man-2",
+     "title": "Iron Man 2",
+     "year": 2010,
+     "type": "film"
+    },
+    {
+     "id": "thor",
+     "title": "Thor",
+     "year": 2011,
+     "type": "film"
+    },
+    {
+     "id": "cap-first-avenger",
+     "title": "Captain America: The First Avenger",
+     "year": 2011,
+     "type": "film"
+    },
+    {
+     "id": "avengers",
+     "title": "The Avengers",
+     "year": 2012,
+     "type": "film"
+    }
+   ]
+  },
+  {
+   "id": "f2",
+   "saga": "The Infinity Saga",
+   "badge": "2",
+   "name": "Phase Two",
+   "subtitle": "2013–2015",
+   "items": [
+    {
+     "id": "iron-man-3",
+     "title": "Iron Man 3",
+     "year": 2013,
+     "type": "film"
+    },
+    {
+     "id": "thor-dark-world",
+     "title": "Thor: The Dark World",
+     "year": 2013,
+     "type": "film"
+    },
+    {
+     "id": "cap-winter-soldier",
+     "title": "Captain America: The Winter Soldier",
+     "year": 2014,
+     "type": "film"
+    },
+    {
+     "id": "gotg",
+     "title": "Guardians of the Galaxy",
+     "year": 2014,
+     "type": "film"
+    },
+    {
+     "id": "age-of-ultron",
+     "title": "Avengers: Age of Ultron",
+     "year": 2015,
+     "type": "film"
+    },
+    {
+     "id": "ant-man",
+     "title": "Ant-Man",
+     "year": 2015,
+     "type": "film"
+    }
+   ]
+  },
+  {
+   "id": "f3",
+   "saga": "The Infinity Saga",
+   "badge": "3",
+   "name": "Phase Three",
+   "subtitle": "2016–2019 · to Endgame",
+   "items": [
+    {
+     "id": "civil-war",
+     "title": "Captain America: Civil War",
+     "year": 2016,
+     "type": "film"
+    },
+    {
+     "id": "doctor-strange",
+     "title": "Doctor Strange",
+     "year": 2016,
+     "type": "film"
+    },
+    {
+     "id": "gotg-2",
+     "title": "Guardians of the Galaxy Vol. 2",
+     "year": 2017,
+     "type": "film"
+    },
+    {
+     "id": "homecoming",
+     "title": "Spider-Man: Homecoming",
+     "year": 2017,
+     "type": "film"
+    },
+    {
+     "id": "ragnarok",
+     "title": "Thor: Ragnarok",
+     "year": 2017,
+     "type": "film"
+    },
+    {
+     "id": "black-panther",
+     "title": "Black Panther",
+     "year": 2018,
+     "type": "film"
+    },
+    {
+     "id": "infinity-war",
+     "title": "Avengers: Infinity War",
+     "year": 2018,
+     "type": "film"
+    },
+    {
+     "id": "ant-man-wasp",
+     "title": "Ant-Man and the Wasp",
+     "year": 2018,
+     "type": "film"
+    },
+    {
+     "id": "captain-marvel",
+     "title": "Captain Marvel",
+     "year": 2019,
+     "type": "film"
+    },
+    {
+     "id": "endgame",
+     "title": "Avengers: Endgame",
+     "year": 2019,
+     "type": "film"
+    },
+    {
+     "id": "far-from-home",
+     "title": "Spider-Man: Far From Home",
+     "year": 2019,
+     "type": "film"
+    }
+   ]
+  },
+  {
+   "id": "f4",
+   "saga": "The Multiverse Saga",
+   "badge": "4",
+   "name": "Phase Four",
+   "subtitle": "2021–2022 · the Disney+ era begins",
+   "items": [
+    {
+     "id": "wandavision",
+     "title": "WandaVision",
+     "year": 2021,
+     "type": "series"
+    },
+    {
+     "id": "falcon-winter-soldier",
+     "title": "The Falcon and the Winter Soldier",
+     "year": 2021,
+     "type": "series"
+    },
+    {
+     "id": "loki-1",
+     "title": "Loki",
+     "year": 2021,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "black-widow",
+     "title": "Black Widow",
+     "year": 2021,
+     "type": "film"
+    },
+    {
+     "id": "what-if-1",
+     "title": "What If...?",
+     "year": 2021,
+     "type": "animated",
+     "season": 1
+    },
+    {
+     "id": "shang-chi",
+     "title": "Shang-Chi and the Legend of the Ten Rings",
+     "year": 2021,
+     "type": "film"
+    },
+    {
+     "id": "eternals",
+     "title": "Eternals",
+     "year": 2021,
+     "type": "film"
+    },
+    {
+     "id": "hawkeye",
+     "title": "Hawkeye",
+     "year": 2021,
+     "type": "series"
+    },
+    {
+     "id": "no-way-home",
+     "title": "Spider-Man: No Way Home",
+     "year": 2021,
+     "type": "film"
+    },
+    {
+     "id": "moon-knight",
+     "title": "Moon Knight",
+     "year": 2022,
+     "type": "series"
+    },
+    {
+     "id": "multiverse-of-madness",
+     "title": "Doctor Strange in the Multiverse of Madness",
+     "year": 2022,
+     "type": "film"
+    },
+    {
+     "id": "ms-marvel",
+     "title": "Ms. Marvel",
+     "year": 2022,
+     "type": "series"
+    },
+    {
+     "id": "love-and-thunder",
+     "title": "Thor: Love and Thunder",
+     "year": 2022,
+     "type": "film"
+    },
+    {
+     "id": "i-am-groot-1",
+     "title": "I Am Groot",
+     "year": 2022,
+     "type": "animated",
+     "season": 1
+    },
+    {
+     "id": "she-hulk",
+     "title": "She-Hulk: Attorney at Law",
+     "year": 2022,
+     "type": "series"
+    },
+    {
+     "id": "werewolf-by-night",
+     "title": "Werewolf by Night",
+     "year": 2022,
+     "type": "special"
+    },
+    {
+     "id": "wakanda-forever",
+     "title": "Black Panther: Wakanda Forever",
+     "year": 2022,
+     "type": "film"
+    },
+    {
+     "id": "gotg-holiday",
+     "title": "The Guardians of the Galaxy Holiday Special",
+     "year": 2022,
+     "type": "special"
+    }
+   ]
+  },
+  {
+   "id": "f5",
+   "saga": "The Multiverse Saga",
+   "badge": "5",
+   "name": "Phase Five",
+   "subtitle": "2023–2025 · to Thunderbolts*",
+   "items": [
+    {
+     "id": "quantumania",
+     "title": "Ant-Man and the Wasp: Quantumania",
+     "year": 2023,
+     "type": "film"
+    },
+    {
+     "id": "gotg-3",
+     "title": "Guardians of the Galaxy Vol. 3",
+     "year": 2023,
+     "type": "film"
+    },
+    {
+     "id": "secret-invasion",
+     "title": "Secret Invasion",
+     "year": 2023,
+     "type": "series"
+    },
+    {
+     "id": "i-am-groot-2",
+     "title": "I Am Groot",
+     "year": 2023,
+     "type": "animated",
+     "season": 2
+    },
+    {
+     "id": "loki-2",
+     "title": "Loki",
+     "year": 2023,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "the-marvels",
+     "title": "The Marvels",
+     "year": 2023,
+     "type": "film"
+    },
+    {
+     "id": "what-if-2",
+     "title": "What If...?",
+     "year": 2023,
+     "type": "animated",
+     "season": 2
+    },
+    {
+     "id": "echo",
+     "title": "Echo",
+     "year": 2024,
+     "type": "series"
+    },
+    {
+     "id": "x-men-97",
+     "title": "X-Men '97",
+     "year": 2024,
+     "type": "animated"
+    },
+    {
+     "id": "deadpool-wolverine",
+     "title": "Deadpool & Wolverine",
+     "year": 2024,
+     "type": "film"
+    },
+    {
+     "id": "agatha",
+     "title": "Agatha All Along",
+     "year": 2024,
+     "type": "series"
+    },
+    {
+     "id": "what-if-3",
+     "title": "What If...?",
+     "year": 2024,
+     "type": "animated",
+     "season": 3
+    },
+    {
+     "id": "fnsm",
+     "title": "Your Friendly Neighborhood Spider-Man",
+     "year": 2025,
+     "type": "animated"
+    },
+    {
+     "id": "brave-new-world",
+     "title": "Captain America: Brave New World",
+     "year": 2025,
+     "type": "film"
+    },
+    {
+     "id": "ddba-1",
+     "title": "Daredevil: Born Again",
+     "year": 2025,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "thunderbolts",
+     "title": "Thunderbolts*",
+     "year": 2025,
+     "type": "film"
+    },
+    {
+     "id": "ironheart",
+     "title": "Ironheart",
+     "year": 2025,
+     "type": "series"
+    },
+    {
+     "id": "eyes-of-wakanda",
+     "title": "Eyes of Wakanda",
+     "year": 2025,
+     "type": "animated"
+    },
+    {
+     "id": "marvel-zombies",
+     "title": "Marvel Zombies",
+     "year": 2025,
+     "type": "animated"
+    }
+   ]
+  },
+  {
+   "id": "f6",
+   "saga": "The Multiverse Saga",
+   "badge": "6",
+   "name": "Phase Six",
+   "subtitle": "2025–2027 · to Secret Wars",
+   "items": [
+    {
+     "id": "fantastic-four",
+     "title": "The Fantastic Four: First Steps",
+     "year": 2025,
+     "type": "film"
+    },
+    {
+     "id": "wonder-man",
+     "title": "Wonder Man",
+     "year": 2026,
+     "type": "series"
+    },
+    {
+     "id": "ddba-2",
+     "title": "Daredevil: Born Again",
+     "year": 2026,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "brand-new-day",
+     "title": "Spider-Man: Brand New Day",
+     "year": 2026,
+     "type": "film",
+     "date": "2026-07-31"
+    },
+    {
+     "id": "visionquest",
+     "title": "VisionQuest",
+     "year": 2026,
+     "type": "series"
+    },
+    {
+     "id": "doomsday",
+     "title": "Avengers: Doomsday",
+     "year": 2026,
+     "type": "film",
+     "date": "2026-12-18"
+    },
+    {
+     "id": "secret-wars",
+     "title": "Avengers: Secret Wars",
+     "year": 2027,
+     "type": "film",
+     "date": "2027-12-17"
+    }
+   ]
+  },
+  {
+   "id": "netflix",
+   "saga": "Marvel Television (now on the MCU timeline)",
+   "badge": "NETFLIX",
+   "name": "The Defenders",
+   "subtitle": "Netflix · 2015–2019",
+   "items": [
+    {
+     "id": "dd-1",
+     "title": "Daredevil",
+     "year": 2015,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "jj-1",
+     "title": "Jessica Jones",
+     "year": 2015,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "dd-2",
+     "title": "Daredevil",
+     "year": 2016,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "lc-1",
+     "title": "Luke Cage",
+     "year": 2016,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "if-1",
+     "title": "Iron Fist",
+     "year": 2017,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "defenders",
+     "title": "The Defenders",
+     "year": 2017,
+     "type": "series"
+    },
+    {
+     "id": "punisher-1",
+     "title": "The Punisher",
+     "year": 2017,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "jj-2",
+     "title": "Jessica Jones",
+     "year": 2018,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "lc-2",
+     "title": "Luke Cage",
+     "year": 2018,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "if-2",
+     "title": "Iron Fist",
+     "year": 2018,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "dd-3",
+     "title": "Daredevil",
+     "year": 2018,
+     "type": "series",
+     "season": 3
+    },
+    {
+     "id": "punisher-2",
+     "title": "The Punisher",
+     "year": 2019,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "jj-3",
+     "title": "Jessica Jones",
+     "year": 2019,
+     "type": "series",
+     "season": 3
+    }
+   ]
+  },
+  {
+   "id": "abc",
+   "saga": "Marvel Television (now on the MCU timeline)",
+   "badge": "ABC",
+   "name": "ABC, Hulu, Freeform",
+   "subtitle": "2013–2020",
+   "items": [
+    {
+     "id": "aos-1",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2013,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "aos-2",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2014,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "agent-carter-1",
+     "title": "Agent Carter",
+     "year": 2015,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "aos-3",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2015,
+     "type": "series",
+     "season": 3
+    },
+    {
+     "id": "agent-carter-2",
+     "title": "Agent Carter",
+     "year": 2016,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "aos-4",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2016,
+     "type": "series",
+     "season": 4
+    },
+    {
+     "id": "inhumans",
+     "title": "Inhumans",
+     "year": 2017,
+     "type": "series"
+    },
+    {
+     "id": "runaways-1",
+     "title": "Runaways",
+     "year": 2017,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "aos-5",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2017,
+     "type": "series",
+     "season": 5
+    },
+    {
+     "id": "cloak-dagger-1",
+     "title": "Cloak & Dagger",
+     "year": 2018,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "runaways-2",
+     "title": "Runaways",
+     "year": 2018,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "aos-6",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2019,
+     "type": "series",
+     "season": 6
+    },
+    {
+     "id": "cloak-dagger-2",
+     "title": "Cloak & Dagger",
+     "year": 2019,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "runaways-3",
+     "title": "Runaways",
+     "year": 2019,
+     "type": "series",
+     "season": 3
+    },
+    {
+     "id": "aos-7",
+     "title": "Agents of S.H.I.E.L.D.",
+     "year": 2020,
+     "type": "series",
+     "season": 7
+    },
+    {
+     "id": "helstrom",
+     "title": "Helstrom",
+     "year": 2020,
+     "type": "series"
+    }
+   ]
+  },
+  {
+   "id": "sony",
+   "saga": "Marvel outside the MCU",
+   "badge": "SONY",
+   "name": "Spider-Man and friends",
+   "subtitle": "Sony Pictures · 2002–2027",
+   "items": [
+    {
+     "id": "sm-1",
+     "title": "Spider-Man",
+     "year": 2002,
+     "type": "film"
+    },
+    {
+     "id": "sm-2",
+     "title": "Spider-Man 2",
+     "year": 2004,
+     "type": "film"
+    },
+    {
+     "id": "sm-3",
+     "title": "Spider-Man 3",
+     "year": 2007,
+     "type": "film"
+    },
+    {
+     "id": "asm-1",
+     "title": "The Amazing Spider-Man",
+     "year": 2012,
+     "type": "film"
+    },
+    {
+     "id": "asm-2",
+     "title": "The Amazing Spider-Man 2",
+     "year": 2014,
+     "type": "film"
+    },
+    {
+     "id": "venom",
+     "title": "Venom",
+     "year": 2018,
+     "type": "film"
+    },
+    {
+     "id": "into-spider-verse",
+     "title": "Spider-Man: Into the Spider-Verse",
+     "year": 2018,
+     "type": "film"
+    },
+    {
+     "id": "venom-2",
+     "title": "Venom: Let There Be Carnage",
+     "year": 2021,
+     "type": "film"
+    },
+    {
+     "id": "morbius",
+     "title": "Morbius",
+     "year": 2022,
+     "type": "film"
+    },
+    {
+     "id": "across-spider-verse",
+     "title": "Spider-Man: Across the Spider-Verse",
+     "year": 2023,
+     "type": "film"
+    },
+    {
+     "id": "madame-web",
+     "title": "Madame Web",
+     "year": 2024,
+     "type": "film"
+    },
+    {
+     "id": "venom-3",
+     "title": "Venom: The Last Dance",
+     "year": 2024,
+     "type": "film"
+    },
+    {
+     "id": "kraven",
+     "title": "Kraven the Hunter",
+     "year": 2024,
+     "type": "film"
+    },
+    {
+     "id": "beyond-spider-verse",
+     "title": "Spider-Man: Beyond the Spider-Verse",
+     "year": 2027,
+     "type": "film"
+    }
+   ]
+  },
+  {
+   "id": "fox",
+   "saga": "Marvel outside the MCU",
+   "badge": "FOX",
+   "name": "X-Men and the Fantastic Four",
+   "subtitle": "20th Century Fox · 2000–2020",
+   "items": [
+    {
+     "id": "x-men",
+     "title": "X-Men",
+     "year": 2000,
+     "type": "film"
+    },
+    {
+     "id": "x2",
+     "title": "X2",
+     "year": 2003,
+     "type": "film"
+    },
+    {
+     "id": "ff-2005",
+     "title": "Fantastic Four",
+     "year": 2005,
+     "type": "film"
+    },
+    {
+     "id": "last-stand",
+     "title": "X-Men: The Last Stand",
+     "year": 2006,
+     "type": "film"
+    },
+    {
+     "id": "ff-silver-surfer",
+     "title": "Fantastic Four: Rise of the Silver Surfer",
+     "year": 2007,
+     "type": "film"
+    },
+    {
+     "id": "origins-wolverine",
+     "title": "X-Men Origins: Wolverine",
+     "year": 2009,
+     "type": "film"
+    },
+    {
+     "id": "first-class",
+     "title": "X-Men: First Class",
+     "year": 2011,
+     "type": "film"
+    },
+    {
+     "id": "the-wolverine",
+     "title": "The Wolverine",
+     "year": 2013,
+     "type": "film"
+    },
+    {
+     "id": "dofp",
+     "title": "X-Men: Days of Future Past",
+     "year": 2014,
+     "type": "film"
+    },
+    {
+     "id": "ff-2015",
+     "title": "Fantastic Four",
+     "year": 2015,
+     "type": "film"
+    },
+    {
+     "id": "deadpool",
+     "title": "Deadpool",
+     "year": 2016,
+     "type": "film"
+    },
+    {
+     "id": "apocalypse",
+     "title": "X-Men: Apocalypse",
+     "year": 2016,
+     "type": "film"
+    },
+    {
+     "id": "logan",
+     "title": "Logan",
+     "year": 2017,
+     "type": "film"
+    },
+    {
+     "id": "legion-1",
+     "title": "Legion",
+     "year": 2017,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "gifted-1",
+     "title": "The Gifted",
+     "year": 2017,
+     "type": "series",
+     "season": 1
+    },
+    {
+     "id": "deadpool-2",
+     "title": "Deadpool 2",
+     "year": 2018,
+     "type": "film"
+    },
+    {
+     "id": "legion-2",
+     "title": "Legion",
+     "year": 2018,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "gifted-2",
+     "title": "The Gifted",
+     "year": 2018,
+     "type": "series",
+     "season": 2
+    },
+    {
+     "id": "dark-phoenix",
+     "title": "Dark Phoenix",
+     "year": 2019,
+     "type": "film"
+    },
+    {
+     "id": "legion-3",
+     "title": "Legion",
+     "year": 2019,
+     "type": "series",
+     "season": 3
+    },
+    {
+     "id": "new-mutants",
+     "title": "The New Mutants",
+     "year": 2020,
+     "type": "film"
+    }
+   ]
+  },
+  {
+   "id": "old",
+   "saga": "Marvel outside the MCU",
+   "badge": "RETRO",
+   "name": "Older Marvel films",
+   "subtitle": "1986–2012",
+   "items": [
+    {
+     "id": "howard-the-duck",
+     "title": "Howard the Duck",
+     "year": 1986,
+     "type": "film"
+    },
+    {
+     "id": "punisher-1989",
+     "title": "The Punisher",
+     "year": 1989,
+     "type": "film"
+    },
+    {
+     "id": "captain-america-1990",
+     "title": "Captain America",
+     "year": 1990,
+     "type": "film"
+    },
+    {
+     "id": "blade",
+     "title": "Blade",
+     "year": 1998,
+     "type": "film"
+    },
+    {
+     "id": "blade-2",
+     "title": "Blade II",
+     "year": 2002,
+     "type": "film"
+    },
+    {
+     "id": "daredevil-2003",
+     "title": "Daredevil",
+     "year": 2003,
+     "type": "film"
+    },
+    {
+     "id": "hulk-2003",
+     "title": "Hulk",
+     "year": 2003,
+     "type": "film"
+    },
+    {
+     "id": "blade-trinity",
+     "title": "Blade: Trinity",
+     "year": 2004,
+     "type": "film"
+    },
+    {
+     "id": "punisher-2004",
+     "title": "The Punisher",
+     "year": 2004,
+     "type": "film"
+    },
+    {
+     "id": "elektra",
+     "title": "Elektra",
+     "year": 2005,
+     "type": "film"
+    },
+    {
+     "id": "ghost-rider",
+     "title": "Ghost Rider",
+     "year": 2007,
+     "type": "film"
+    },
+    {
+     "id": "punisher-war-zone",
+     "title": "Punisher: War Zone",
+     "year": 2008,
+     "type": "film"
+    },
+    {
+     "id": "ghost-rider-2",
+     "title": "Ghost Rider: Spirit of Vengeance",
+     "year": 2012,
+     "type": "film"
+    }
+   ]
+  }
+ ]
+}

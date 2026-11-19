@@ -1,0 +1,23 @@
+pkgname=multiwersum
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Tick off Marvel films and series, compare who has seen what, and queue what to watch next'
+arch=('x86_64' 'aarch64')
+license=('MIT')
+depends=('qt6-base' 'qt6-declarative' 'qt6-wayland')
+makedepends=('gcc' 'make')
+source=()
+sha256sums=()
+
+build() {
+  cd "$startdir/.."
+  ./bin/build
+}
+
+package() {
+  cd "$startdir/.."
+  install -Dm755 build/multiwersum "$pkgdir/usr/bin/multiwersum"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 "$startdir/multiwersum.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/multiwersum.svg"
+  install -Dm644 "$startdir/multiwersum.desktop" "$pkgdir/usr/share/applications/multiwersum.desktop"
+}

@@ -1,0 +1,10 @@
+{
+ "%n in the queue": {
+  "one": "%n in the queue",
+  "other": "%n in the queue"
+ },
+ "%n seen by everyone": {
+  "one": "%n seen by everyone",
+  "other": "%n seen by everyone"
+ }
+}
