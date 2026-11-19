@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiwersum — live demo</title>
+<style>
+:root{--bg:#121212;--panel:#1c1c1e;--panel2:#26262a;--text:#e8e6e3;--dim:#9a978f;--accent:#ffd60a;
+--red:#ff453a;--blue:#0a84ff;--green:#30d158;--pink:#ff375f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:15px/1.5 system-ui,sans-serif;min-height:100vh}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 18px;background:var(--panel);
+position:sticky;top:0;z-index:5;border-bottom:1px solid #2a2a2c}
+.name{font-weight:800;margin-right:auto}
+.name b{color:var(--accent)}
+.mode{background:transparent;border:1px solid #3a3a3e;color:var(--text);border-radius:6px;padding:5px 14px;cursor:pointer;font:inherit}
+.mode.on{background:var(--accent);color:#111;border-color:var(--accent);font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:12px 18px 0}
+.chip{border-radius:6px;padding:4px 12px;font-weight:700;font-size:13.5px;cursor:pointer;border:2px solid transparent;opacity:.55}
+.chip.on{opacity:1}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:12px 18px}
+.f{background:var(--panel2);border-radius:6px;padding:4px 12px;font-size:13px;cursor:pointer;color:var(--dim)}
+.f.on{outline:2px solid var(--accent);color:var(--text)}
+.list{padding:0 12px 90px}
+.row{display:flex;align-items:center;gap:12px;padding:8px 8px;border-radius:6px}
+.row:hover{background:#191919}
+.sec{font-weight:800;letter-spacing:.06em;font-size:12.5px;color:var(--dim);padding:18px 8px 4px}
+.who{width:26px;height:26px;border-radius:6px;flex:none}
+.box{width:22px;height:22px;border-radius:5px;border:2px solid #4a4a4e;flex:none;cursor:pointer;display:grid;place-items:center;font-weight:900}
+.box.yes{border-color:currentColor;background:currentColor}
+.box.yes svg{filter:brightness(0) invert(1)}
+.t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.y{color:var(--dim);font-size:13px}
+.k{font-size:10.5px;letter-spacing:.05em;color:var(--dim);border:1px solid #333;border-radius:4px;padding:1px 6px}
+.qin{display:flex;gap:8px;padding:12px 18px;position:sticky;bottom:0;background:var(--bg);border-top:1px solid #2a2a2c}
+input[type=text]{flex:1;background:var(--panel2);border:1px solid #38383c;border-radius:6px;color:var(--text);padding:8px 12px;font:inherit}
+button.act{background:var(--accent);border:0;border-radius:6px;color:#111;font-weight:700;padding:8px 16px;cursor:pointer;font:inherit}
+button.mini{background:var(--panel2);border:0;border-radius:6px;color:var(--text);padding:6px 10px;cursor:pointer;font:inherit}
+.qrow{display:flex;align-items:center;gap:10px;padding:9px 8px;border-bottom:1px solid #222224}
+.pos{color:var(--accent);font-weight:800;width:22px;text-align:center}
+.hint{color:var(--dim);font-size:12.5px;padding:10px 18px 0}
+</style>
+</head>
+<body>
+<div class="top">
+  <span class="name">MULTI<b>WERSUM</b> demo</span>
+  <button class="mode on" data-mode="compare">Compare</button>
+  <button class="mode" data-mode="list">List</button>
+  <button class="mode" data-mode="queue">Queue <span id="qn"></span></button>
+</div>
+<div id="app"></div>
+<div class="hint" id="hint"></div>
+<script>
+// ── demo data ──────────────────────────────────────────────────────────────
+const CAT=[
+ {s:"THE INFINITY SAGA",ph:"1 · PHASE ONE",items:[
+  ["iron-man","Iron Man",2008],["hulk","The Incredible Hulk",2008],["iron-man-2","Iron Man 2",2010],
+  ["thor","Thor",2011],["cap1","Captain America: The First Avenger",2011],["avengers","The Avengers",2012]]},
+ {s:"THE INFINITY SAGA",ph:"2 · PHASE TWO",items:[
+  ["avengers-aou","Avengers: Age of Ultron",2015],["gotg","Guardians of the Galaxy",2014],
+  ["thor-tdw","Thor: The Dark World",2013],["gotg2","Guardians of the Galaxy Vol. 2",2017],
+  ["doctor-strange","Doctor Strange",2016]]},
+ {s:"THE INFINITY SAGA",ph:"3 · PHASE THREE",items:[
+  ["civil-war","Captain America: Civil War",2016],["black-panther","Black Panther",2018],
+  ["infinity-war","Avengers: Infinity War",2018],["endgame","Avengers: Endgame",2019],
+  ["spider-man-nph","Spider-Man: No Way Home",2021]]},
+ {s:"THE SAGA OF THE MULTIVERSE",ph:"4 · PHASE FOUR",items:[
+  ["loki","Loki (S1)",2021,"series"],["wandavision","WandaVision",2021,"series"],
+  ["eternals","Eternals",2021],["ms-marvel","Ms. Marvel",2022,"series"]]},
+ {s:"MARVEL TELEVISION",ph:"DEFENDER ERA",items:[
+  ["daredevil","Daredevil (S1)",2015,"series"],["defenders","The Defenders",2017,"series"]]},
+ {s:"OUTSIDE THE MCU",ph:"FOX & SONY",items:[
+  ["logan","Logan",2017],["spider-verse","Spider-Man: Into the Spider-Verse",2018],
+  ["xmen","X-Men",2000]]}];
+const PEOPLE=[
+ {n:"Alex",c:"var(--red)",seen:["iron-man","hulk","thor","gotg","thor-tdw","logan","xmen","spider-verse"]},
+ {n:"Sam",c:"var(--blue)",seen:["iron-man","thor","avengers","loki","daredevil"]}];
+const COLORS=[PEOPLE[0].c,PEOPLE[1].c];
+let mode="compare", active=0, filter="all";
+let queue=["infinity-war","endgame","black-panther","ms-marvel","defenders","spider-man-nph"];
+const flat=Object.fromEntries(CAT.flatMap(s=>s.items.map(i=>[i[0],{t:i[1],y:i[2],k:i[3]||"film"}])));
+const LS="multiwersum-demo";
+try{const sv=JSON.parse(localStorage.getItem(LS));
+  if(sv){sv.seen.forEach((s,p)=>PEOPLE[p].seen=s); queue=sv.queue;}}catch(e){}
+const save=()=>localStorage.setItem(LS,JSON.stringify({seen:PEOPLE.map(p=>p.seen),queue}));
+const has=(p,id)=>PEOPLE[p].seen.includes(id);
+const tick=p=>{PEOPLE[p].seen=PEOPLE[p].seen.slice(); const i=PEOPLE[p].seen.indexOf(event.currentTarget.dataset.id);
+  i<0?PEOPLE[p].seen.push(event.currentTarget.dataset.id):PEOPLE[p].seen.splice(i,1); save(); draw();};
+const check=id=>`<svg width="13" height="13" viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="currentColor" stroke-width="5" fill="none"/></svg>`;
+const box=(p,id)=>`<span class="box ${has(p,id)?"yes":""}" data-id="${id}" onclick="tick(${p})"
+  style="color:${COLORS[p]}">${has(p,id)?check(id):""}</span>`;
+function counts(){
+ const a=new Set(PEOPLE[0].seen),b=new Set(PEOPLE[1].seen);
+ let onlyA=0,onlyB=0,both=0,neither=0;
+ for(const id in flat){const x=a.has(id),y=b.has(id);
+  x&&!y&&onlyA++; !x&&y&&onlyB++; x&&y&&both++; !x&&!y&&neither++;}
+ return{onlyA,onlyB,both,neither,all:Object.keys(flat).length};}
+function rowHtml(id,i){const it=flat[id];
+ return `<div class="row">${mode==="compare"?box(0,id)+box(1,id):box(active,id)}
+ <span class="t">${it.t}</span><span class="k">${it.k}</span><span class="y">${it.y}</span></div>`;}
+function draw(){
+ document.querySelectorAll(".mode").forEach(b=>b.classList.toggle("on",b.dataset.mode===mode));
+ document.getElementById("qn").textContent=queue.length?"· "+queue.length:"";
+ const c=counts(),app=document.getElementById("app"),hint=document.getElementById("hint");
+ if(mode==="list"){
+  app.innerHTML=`<div class="chips">${PEOPLE.map((p,i)=>
+   `<span class="chip ${i===active?"on":""}" style="background:${COLORS[i]}22;color:${COLORS[i]}"
+    onclick="active=${i};draw()">${p.n} · ${p.seen.length}</span>`).join("")}</div>
+   <div class="list">${CAT.map(s=>`<div class="sec">${s.s} — ${s.ph}</div>${s.items.map(i=>rowHtml(i[0])).join("")}`).join("")}</div>`;
+  hint.textContent=`Demo data only — nothing leaves your browser. Click a checkbox.`;}
+ else if(mode==="compare"){
+  const keep=id=>filter==="all"?true:filter==="a"?has(0,id)&&!has(1,id):filter==="b"?has(1,id)&&!has(0,id):
+   filter==="both"?has(0,id)&&has(1,id):!has(0,id)&&!has(1,id);
+  app.innerHTML=`<div class="filters">
+   ${[["all","Everything "+c.all],["a","Only "+PEOPLE[0].n+" "+c.onlyA],["b","Only "+PEOPLE[1].n+" "+c.onlyB],
+      ["both","Both "+c.both],["neither","Neither "+c.neither]].map(f=>
+    `<span class="f ${filter===f[0]?"on":""}" onclick="filter='${f[0]}';draw()">${f[1]}</span>`).join("")}</div>
+   <div class="list">${CAT.map(s=>{const rows=s.items.filter(i=>keep(i[0])).map(i=>rowHtml(i[0])).join("");
+     return rows?`<div class="sec">${s.s} — ${s.ph}</div>${rows}`:"";}).join("")||'<div class="hint">Nothing here.</div>'}</div>`;
+  hint.textContent=`Compare shows disagreement first. Click any box to tick it for that person.`;}
+ else{
+  app.innerHTML=`<div class="list">${queue.map((id,q)=>`<div class="qrow">
+   <span class="pos">${q+1}</span><span class="t">${flat[id]?flat[id].t:id}</span>
+   ${box(0,id)}${box(1,id)}
+   <button class="mini" onclick="mv(${q},-1)">↑</button><button class="mini" onclick="mv(${q},1)">↓</button>
+   <button class="mini" onclick="rm(${q})">✕</button></div>`).join("")||
+   '<div class="hint">Queue empty — add something below.</div>'}</div>
+   <div class="qin"><input type="text" id="add" placeholder="title to watch next…"
+     onkeydown="if(event.key==='Enter')addq()"><button class="act" onclick="addq()">Add</button></div>`;
+  hint.textContent=`In the app this list is shared on the sofa and the next-unseen MCU title is one button away.`;}
+}
+function mv(q,d){const t=queue[q];queue[q]=queue[q+d];queue[q+d]=t;save();draw();}
+function rm(q){queue.splice(q,1);save();draw();}
+function addq(){const v=document.getElementById("add").value.trim(); if(!v)return;
+ const hit=Object.entries(flat).find(([id,it])=>it.t.toLowerCase().includes(v.toLowerCase()));
+ queue.push(hit?hit[0]:v);save();draw();}
+document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;draw();});
+draw();
+</script>
+</body>
+</html>

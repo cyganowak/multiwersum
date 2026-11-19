@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Multiwersum
+Comment=Tick off Marvel films and series, compare who has seen what, and queue what to watch next
+Comment[pl]=Odhaczaj filmy i seriale Marvela, porównuj, kto co obejrzał, i układaj kolejkę do obejrzenia
+Exec=multiwersum open
+Icon=com.github.cyganowak.multiwersum
+Terminal=false
+Categories=Utility;AudioVideo;
+Keywords=marvel;mcu;movies;watchlist;filmy;seriale;
+StartupWMClass=multiwersum
+X-Flatpak=com.github.cyganowak.multiwersum

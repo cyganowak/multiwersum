@@ -1,0 +1,74 @@
+name: release
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nimaa32/msvc-dev-cmd@v1
+      - name: Install Qt
+        shell: pwsh
+        run: |
+          pip install aqtinstall
+          $vers = (aqt list-qt windows desktop) -split '\s+' | Where-Object { $_ -match '^\d+\.\d+' }
+          $ver = $vers[-1]
+          Write-Host "Using Qt $ver"
+          aqt install-qt windows desktop $ver win64_msvc2022_64 -O C:\Qt
+          "QTDIR=C:\Qt\$ver\win64_msvc2022_64" | Out-File -FilePath $env:GITHUB_ENV -Append
+      - name: Build
+        shell: pwsh
+        run: |
+          mkdir build
+          cd build
+          & "$env:QTDIR\bin\qmake6.exe" "CONFIG+=release" "CONFIG-=debug_and_release" ..\multiwersum.pro
+          nmake
+          $exe = Get-ChildItem -Recurse -Filter multiwersum.exe | Select-Object -First 1
+          & "$env:QTDIR\bin\windeployqt.exe" $exe.FullName --qmldirs ..\src
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+      - name: Package
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem build -Recurse -Filter multiwersum.exe | Select-Object -First 1
+          mkdir stage
+          Copy-Item "$($exe.DirectoryName)\*" stage -Recurse
+          Compress-Archive -Path stage\* -DestinationPath multiwersum-windows-x64.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: multiwersum-windows-x64.zip
+
+  flatpak:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deps
+        run: sudo apt-get update && sudo apt-get install -y flatpak flatpak-builder
+      - name: Flathub remote
+        run: flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      - name: Build
+        run: flatpak-builder --user --disable-rofiles-fuse --install-deps-from=flathub --repo=repo flatpak-app flatpak/com.github.cyganowak.multiwersum.json
+      - name: Bundle
+        run: flatpak build-bundle --user repo multiwersum.flatpak com.github.cyganowak.multiwersum stable
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flatpak
+          path: multiwersum.flatpak
+
+  release:
+    needs: [windows, flatpak]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            multiwersum-windows-x64.zip
+            multiwersum.flatpak
+          generate_release_notes: true

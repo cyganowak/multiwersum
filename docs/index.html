@@ -54,7 +54,8 @@ footer{margin:72px 0 40px;color:var(--dim);font-size:14px;text-align:center}
   <p>A small offline desktop app: one shared checklist of every Marvel film and series,
   tick marks per person, a side-by-side comparison, and a queue of what to watch next.</p>
   <div class="cta">
-    <a class="btn" href="https://github.com/cyganowak/multiwersum#install">Install on Arch</a>
+    <a class="btn" href="#demo">▶ Try the live demo</a>
+    <a class="btn ghost" href="#install">Install</a>
     <a class="btn ghost" href="https://github.com/cyganowak/multiwersum">Source on GitHub</a>
   </div>
   <img class="shot" src="screenshot.png" alt="Multiwersum compare view showing two profiles side by side">
@@ -86,13 +87,29 @@ footer{margin:72px 0 40px;color:var(--dim);font-size:14px;text-align:center}
   <tr><td><span class="kbd">?</span></td><td>show all shortcuts · <span class="kbd">Esc</span> closes</td></tr>
 </table>
 
-<h2>Install (Arch / Omarchy)</h2>
-<pre>git clone https://github.com/cyganowak/multiwersum
+<h2 id="demo">Live demo — right here, no install</h2>
+<p style="color:var(--dim);font-size:14.5px;margin-bottom:14px">A faithful browser port of the real app with demo data
+(Alex &amp; Sam). Tick boxes, flip between Compare / List / Queue — it behaves like the desktop version.
+Nothing leaves your browser.</p>
+<iframe src="demo.html" title="Multiwersum interactive demo" loading="lazy"
+  style="width:100%;height:620px;border:1px solid #2c2c2e;border-radius:var(--radius);background:var(--bg)"></iframe>
+
+<h2 id="install">Install</h2>
+<div class="grid">
+  <div class="card"><h3>🐧 Arch / Omarchy</h3>
+    <pre style="border:0;padding:0;background:transparent">git clone https://github.com/cyganowak/multiwersum
 cd multiwersum/pkgbuild
-makepkg -si
-# then: Super+Space → Multiwersum</pre>
-<p style="color:var(--dim);margin-top:12px;font-size:14.5px">Requires Qt 6 (base, declarative, wayland).
-Built and tested on Arch; should build anywhere with Qt&nbsp;6 and qmake6.</p>
+makepkg -si</pre></div>
+  <div class="card"><h3>📦 Flatpak</h3>
+    <pre style="border:0;padding:0;background:transparent">flatpak install \
+  https://cyganowak.github.io/multiwersum/multiwersum.flatpakref</pre></div>
+  <div class="card"><h3>🪟 Windows</h3>
+    <p>Portable x64 build — unzip and run <code>multiwersum.exe</code>. Qt is bundled, no installer needed.</p>
+    <p style="margin-top:10px"><a class="btn" style="font-size:14px;padding:7px 14px"
+      href="https://github.com/cyganowak/multiwersum/releases/latest">Download .zip</a></p></div>
+  <div class="card"><h3>🔧 From source</h3>
+    <p>Any Qt 6.5+ platform: <code>qmake6 &amp;&amp; make</code>. Needs qt-base, qt-declarative, qt-wayland.</p></div>
+</div>
 
 <footer>
   <p>Multiwersum — MIT licensed, no telemetry, no network. Made for the sofa.</p>
